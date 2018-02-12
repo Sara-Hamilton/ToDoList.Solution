@@ -9524,11 +9524,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sara\\epicodus\\ToDoList.Solution\\todo_list.csproj",
-      "projectName": "todo_list",
-      "projectPath": "C:\\Users\\sara\\epicodus\\ToDoList.Solution\\todo_list.csproj",
+      "projectUniqueName": "C:\\Users\\sara\\epicodus\\ToDoList.Solution\\ToDoList\\ToDoList.csproj",
+      "projectName": "ToDoList",
+      "projectPath": "C:\\Users\\sara\\epicodus\\ToDoList.Solution\\ToDoList\\ToDoList.csproj",
       "packagesPath": "C:\\Users\\sara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sara\\epicodus\\ToDoList.Solution\\obj\\",
+      "outputPath": "C:\\Users\\sara\\epicodus\\ToDoList.Solution\\ToDoList\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
