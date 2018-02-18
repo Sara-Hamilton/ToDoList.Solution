@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is the Epicodus weekly project for week 3 of the C# course. Its purpose is to display understanding .Net MVC testing in C#._
+_This is a Epicodus practice project for week 3 of the C# course. Its purpose is to display understanding .Net MVC testing in C#._
 
 #### _Word Counter_
 * Allows the user to create a todo list with categories
