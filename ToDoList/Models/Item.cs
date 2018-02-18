@@ -1,21 +1,22 @@
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
+using ToDoList;
 using System;
 
-namespace ToDoList
-// namespace ToDoList.Models
+namespace ToDoList.Models
 {
   public class Item
   {
     private string _description;
     private int _id;
-    private static List<Item> _instances = new List<Item> {};
+    // private static List<Item> _instances = new List<Item> {};
 
-    public Item (string description)
+    public Item (string Description, int Id = 0)
     {
-      _description = description;
-      _instances.Add(this);
-      _id = _instances.Count;
+      _id = Id;
+      _description = Description;
     }
+
     public string GetDescription()
     {
       return _description;
@@ -28,21 +29,44 @@ namespace ToDoList
     {
       return _id;
     }
-    public static List<Item> GetAll()
-    {
-      return _instances;
-    }
+    // public static List<Item> GetAll()
+    // {
+    //   return _instances;
+    // }
     // public void Save()
     // {
     //   _instances.Add(this);
     // }
-    public static void ClearAll()
+    // public static void ClearAll()
+    // {
+    //   _instances.Clear();
+    // }
+    // public static Item Find(int searchId)
+    // {
+    //   return _instances[searchId-1];
+    // }
+
+    public static List<Item> GetAll()
     {
-      _instances.Clear();
-    }
-    public static Item Find(int searchId)
-    {
-      return _instances[searchId-1];
+      List<Item> allItems = new List<Item> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM items;";
+      MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int itemId = rdr.GetInt32(0);
+        string itemDescription = rdr.GetString(1);
+        Item newItem = new Item(itemDescription, itemId);
+        allItems.Add(newItem);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allItems;
     }
   }
 }
